@@ -7,15 +7,19 @@ use App\Services\SoapService;
 use Illuminate\Http\Request;
 
 class SoapController extends Controller {
+
+    public function __construct() {
+        $this->soap_service = new SoapService;
+    }
     
     /**
      * Get an establishment
      *
      * @return \Illuminate\Http\Response
      */
-    public function getEstablishment(Request $request, $idEstablishment) {
-        $response = SoapService::getEstablishment($idEstablishment);
+    public function obtenerEstablecimiento(Request $request, $idEstablecimiento) {
+        $response = $this->soap_service->obtenerEstablecimiento($idEstablecimiento);
 
-        return response()->json(['Establishment' => $response], 200);
+        return response()->json(['Establecimiento' => $response], 200);
     }
 }
