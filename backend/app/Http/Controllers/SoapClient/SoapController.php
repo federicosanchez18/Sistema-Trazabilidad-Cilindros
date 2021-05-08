@@ -17,8 +17,8 @@ class SoapController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function obtenerEstablecimiento(Request $request, $idEstablecimiento) {
-        $response = $this->soap_service->obtenerEstablecimiento($idEstablecimiento);
+    public function getEstablecimiento(Request $request, $idEstablecimiento) {
+        $response = $this->soap_service->getEstablecimiento($idEstablecimiento);
 
         return response()->json(['Establecimiento' => $response], 200);
     }

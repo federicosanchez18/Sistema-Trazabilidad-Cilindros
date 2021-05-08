@@ -19,6 +19,6 @@ use Illuminate\Support\Facades\Route;
 	# ------
 	# Soap Controller
 	# --------------------
-	Route::get('soaps/establecimiento/{idEstablecimiento}', 'App\Http\Controllers\SoapClient\SoapController@obtenerEstablecimiento');
+	Route::get('soaps/establecimiento/{idEstablecimiento}', 'App\Http\Controllers\SoapClient\SoapController@getEstablecimiento');
 
 //});

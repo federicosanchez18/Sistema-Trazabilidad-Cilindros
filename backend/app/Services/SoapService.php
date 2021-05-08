@@ -7,17 +7,26 @@ use SoapClient;
 
 class SoapService {
 
-	public function obtenerEstablecimiento($idEstablecimiento) {
+	private $soapClient;
+
+	public function __construct() {
+		$this->soapClient = new SoapClient(config('soap.client_paths.wsdl')); 
+	}
+
+	public function getEstablecimiento($idEstablecimiento) {
         $params = [
 			'Idestablecimiento' => $idEstablecimiento,
             'Usuario' => config('soap.auth.user'),
             'Password' => config('soap.auth.password')
         ];
-        $soapClient = new SoapClient(config('soap.client_paths.wsdl'));
-        $soapResponse = $soapClient->__soapCall('datos_establecimiento', $params);
-        $establecimientoEnJson = json_decode(json_encode($soapResponse), true);
-        $establecimiento = new Establecimiento($establecimientoEnJson);
+        $soapResponse = $this->soapClient->__soapCall('datos_establecimiento', $params);
+        $soapResponseJson = $this->_parsearSoapResponseAJson($soapResponse);
+        $establecimiento = new Establecimiento($soapResponseJson);
         
         return $establecimiento;
+	}
+
+	private function _parsearSoapResponseAJson($soapResponse) {
+		return json_decode(json_encode($soapResponse), true);
 	}
 }
