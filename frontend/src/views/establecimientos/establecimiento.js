@@ -16,6 +16,11 @@ function Establecimiento(props) {
         <CardBody>
           <CardText />
           <div className="author">
+            <img
+              alt="..."
+              className="avatar"
+              src={require("assets/img/opds.png").default}
+            />
             <h5 className="title">Establecimiento</h5>
           </div>
           <p className="description">Razon Social: RONDA HORACIO ATILIO GILBERTO</p>
