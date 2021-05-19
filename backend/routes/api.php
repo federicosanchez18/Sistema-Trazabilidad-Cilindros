@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TramiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::middleware('auth:api')->group(function() {
+Route::middleware('api')->group(function() {
 
 	# ------
 	# Soap Controller
 	# --------------------
 	Route::get('soaps/establecimiento/{idEstablecimiento}', 'App\Http\Controllers\SoapClient\SoapController@getEstablecimiento');
 
+	# ------
+	# Tramite Controller
+	# --------------------
+	Route::post('tramites/subida-archivo', 'App\Http\Controllers\TramiteController@subidaArchivo');
+	Route::apiResource('tramites', TramiteController::class);
+
+	# ------
+	# Tipo Tramite Controller
+	# --------------------
+	Route::get('tipo-tramites/{tipoTramite}', 'App\Http\Controllers\TipoTramiteController@show');
+	Route::get('tipo-tramites', 'App\Http\Controllers\TipoTramiteController@index');
+});
 //});
