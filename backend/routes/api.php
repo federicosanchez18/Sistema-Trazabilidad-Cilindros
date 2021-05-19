@@ -32,7 +32,7 @@ Route::middleware('api')->group(function() {
 	# ------
 	# Tipo Tramite Controller
 	# --------------------
-	Route::get('tipo-tramites/{tipoTramite}', 'App\Http\Controllers\TipoTramiteController@show');
+	Route::get('tipo-tramites/{nombreTipoTramite}', 'App\Http\Controllers\TipoTramiteController@show');
 	Route::get('tipo-tramites', 'App\Http\Controllers\TipoTramiteController@index');
 });
 //});

@@ -23,7 +23,8 @@ class TipoTramiteController extends Controller {
      * @param  TipoTramite  $tipoTramite
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, TipoTramite $tipoTramite) {
+    public function show(Request $request, $nombreTipoTramite) {
+        $tipoTramite = TipoTramite::where('nombre', $nombreTipoTramite)->first();
         return response()->json($tipoTramite, 200);
     }
 
