@@ -41,6 +41,8 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:api',
+            'api.response',
+            'db.transaction',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -62,5 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'api.response' => \App\Http\Middleware\ApiResponse::class, 
+        'db.transaction' => \App\Http\Middleware\DBTransaction::class,
     ];
 }
