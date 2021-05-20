@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
             'throttle:api',
             'api.response',
             'db.transaction',
+            'cors',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'api.response' => \App\Http\Middleware\ApiResponse::class, 
         'db.transaction' => \App\Http\Middleware\DBTransaction::class,
+        'cors' => \App\Http\Middleware\CORS::class,
     ];
 }
