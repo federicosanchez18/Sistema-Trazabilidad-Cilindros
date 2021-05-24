@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Model;
 
 class Documento extends Model {
@@ -36,6 +37,14 @@ class Documento extends Model {
 
     public function tipoDocumento() {
         return $this->belongsTo(TipoDocumento::class);
+    }
+
+    # Mutators
+    # -------------------
+    protected $appends = ['archivo_url'];
+
+    public function getArchivoUrlAttribute() {
+        return Storage::disk('public')->path('documentos/'.$this->nombre_archivo);
     }
 
 }
