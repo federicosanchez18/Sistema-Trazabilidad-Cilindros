@@ -15,6 +15,13 @@ class TipoTramite extends Model {
 
     protected $with = ['tipoDocumentos'];
 
+    # Querys
+    # -----------------
+    public static function getTipoTramite($nombreTipoTramite) {
+        return self::where('nombre', $nombreTipoTramite)
+                   ->first();
+    }
+
 	# Relationships
     # -----------------
 	/**
