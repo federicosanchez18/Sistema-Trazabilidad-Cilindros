@@ -16,6 +16,7 @@ class CreateTramitesTable extends Migration {
             $table->id();
             $table->unsignedBigInteger('establecimiento_id');
             $table->unsignedBigInteger('tipo_tramite_id');
+            $table->unique(['tipo_tramite_id', 'establecimiento_id']);
             $table->timestamps();
 
             $table->foreign('tipo_tramite_id')->references('id')->on('tipo_tramites')->onDelete('cascade');
