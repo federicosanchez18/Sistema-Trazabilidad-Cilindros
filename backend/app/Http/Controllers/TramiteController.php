@@ -40,15 +40,13 @@ class TramiteController extends Controller {
      */
     public function store(Store $request) {
         $tramite = Tramite::create($request->validated());
-        $tipoTramiteId = $request->tipo_tramite_id;
         $establecimientoId = $request->establecimiento_id;
-        $tipoDocumentoIds = $request->tipo_documento_ids;
         EstadoTramite::create([
             'tramite_id' => $tramite->id,
             'establecimiento_id' => $establecimientoId,
             'estado' => 'Iniciado'
         ]);
-        DocumentoService::guardarRegistros($tipoDocumentoIds, $tramite->id, $tipoTramiteId, $establecimientoId);
+        DocumentoService::guardarRegistros($request->tipo_documento_ids, $tramite->id, $request->tipo_tramite_id, $establecimientoId);
 
         return response()->json($tramite->fresh(), 200);
     }
