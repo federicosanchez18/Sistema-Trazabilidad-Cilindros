@@ -4,10 +4,19 @@ import {
   CardBody,
   CardText,
 } from "reactstrap";
+import EstablecimientoService from "../../services/EstablecimientoService";
 
 function Establecimiento(props) {
-  // Traer la info desde el backend
+  const [establecimiento, setEstablecimiento] = useState({})
+
   useEffect(() => {
+    EstablecimientoService.get(33926)
+      .then((response) => {
+        setEstablecimiento(response.data.data.Establecimiento)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }, [])
 
   return (
@@ -22,12 +31,13 @@ function Establecimiento(props) {
             />
             <h5 className="title">Establecimiento</h5>
           </div>
-          <p className="description">Razon Social: RONDA HORACIO ATILIO GILBERTO</p>
-          <p className="description">Cuit: 20-14498244/5</p>
+          <p className="description">Razon Social: {establecimiento.razon_social}</p>
+          <p className="description">Cuit: {establecimiento.cuit}</p>
+          {/*Falta ver qué sería el número de establecimiento*/}
           <p className="description">Nº Establecimiento: 876 </p>
-          <p className="description">Nº Presentación: SAN JUSTO</p>
-          <p className="description">Planta: PLANTA SAN JUSTO</p>
-          <p className="description">Domicilio: Calle: ARRIBEÑOS Nro: 3830 Ruta: ----------------------------- Km: ----------</p>
+          <p className="description">Nº Presentación: {establecimiento.localidad}</p>
+          <p className="description">Planta: {establecimiento.planta}</p>
+          <p className="description">Domicilio: {establecimiento.domicilio}</p>
         </CardBody>
       </Card>
     </>
