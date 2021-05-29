@@ -10,8 +10,9 @@ trait SubidaArchivoTrait {
 
 	public function subidaArchivo(SubidaArchivo $request) {
 		$file = $request->file('archivo');
-		Storage::disk('public')->delete('/documentos/'.$file->getClientOriginalName());
-		$path = Storage::disk('public')->putFileAs('/documentos', $file, $file->getClientOriginalName(), 'public');
+		$filename = $request->tipo_tramite_id.'_'.$request->tipo_documento_id.'_'.$request->establecimiento_id.'.pdf';
+		Storage::disk('public')->delete('/documentos/'.$filename);
+		$path = Storage::disk('public')->putFileAs('/documentos', $file, $filename, 'public');
 		
 		return response()->json(['message' => 'El archivo se guardó con éxito'], 200);
 	}
