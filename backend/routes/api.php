@@ -33,6 +33,7 @@ Route::middleware('api')->group(function() {
 	# Tipo Tramite Controller
 	# --------------------
 	Route::get('tipo-tramites/con-establecimiento', 'App\Http\Controllers\TipoTramiteController@show');
+	Route::get('tipo-tramites/{nombre}', 'App\Http\Controllers\TipoTramiteController@getPorNombre');
 	Route::get('tipo-tramites', 'App\Http\Controllers\TipoTramiteController@index');
 });
 //});

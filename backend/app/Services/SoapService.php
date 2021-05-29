@@ -20,6 +20,7 @@ class SoapService {
             'Password' => config('soap.auth.password')
         ];
         $soapResponse = $this->soapClient->__soapCall('datos_establecimiento', $params);
+        // Contemplar validaciones de los datos que llegan o si hay algun error.
         $soapResponseJson = $this->_parsearSoapResponseAJson($soapResponse);
         $establecimiento = new Establecimiento($soapResponseJson);
         
