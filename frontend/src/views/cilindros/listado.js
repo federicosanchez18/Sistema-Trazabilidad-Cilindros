@@ -8,10 +8,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import useCylinders from "assets/mocks/cylinders.js"
+import useCilindros from "assets/mocks/cilindros.js"
 
-const CylindersList = () => {
-  const [cylinders] = useCylinders()
+const ListadoCilindros = () => {
+  const [cilindros] = useCilindros()
 
   return (
     <Row>
@@ -37,17 +37,17 @@ const CylindersList = () => {
                 </tr>
               </thead>
               <tbody>
-                {cylinders.map((cylinder, index) => (
+                {cilindros.map((cilindro, index) => (
                   <tr key={index}>
-                    <td>{cylinder.serie}</td>
-                    <td>{cylinder.manufacturer}</td>
-                    <td>{cylinder.establishment}</td>
-                    <td>{cylinder.type}</td>
-                    <td>{cylinder.gasType}</td>
-                    <td>{cylinder.iram}</td>
-                    <td>{cylinder.state}</td>
-                    <td>{cylinder.manufacturing}</td>
-                    <td>{cylinder.maturities}</td>
+                    <td>{cilindro.serial}</td>
+                    <td>{cilindro.fabricante}</td>
+                    <td>{cilindro.establecimiento}</td>
+                    <td>{cilindro.tipo}</td>
+                    <td>{cilindro.tipoGas}</td>
+                    <td>{cilindro.iram}</td>
+                    <td>{cilindro.estado}</td>
+                    <td>{cilindro.fabricacion}</td>
+                    <td>{cilindro.vencimiento}</td>
                   </tr>
                 ))}
               </tbody>
@@ -59,4 +59,4 @@ const CylindersList = () => {
   );
 }
 
-export default CylindersList;
+export default ListadoCilindros;
