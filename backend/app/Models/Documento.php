@@ -26,6 +26,9 @@ class Documento extends Model {
 	    'autorizado' => 'bool'
 	];
 
+    protected $with = ['tipoDocumento'];
+
+
 	# Relationships
     # -----------------
     /**

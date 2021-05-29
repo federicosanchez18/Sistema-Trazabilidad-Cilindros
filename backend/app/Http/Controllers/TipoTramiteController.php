@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TipoTramite\Params;
-use Illuminate\Http\TipoTramite\Request;
 use App\Services\TipoTramiteService;
+use Illuminate\Http\Request;
 use App\Models\TipoTramite;
 
 class TipoTramiteController extends Controller {
@@ -29,6 +29,18 @@ class TipoTramiteController extends Controller {
         $params = $request->query();
         $tipoTramiteOTramite = TipoTramiteService::getTipoTramiteOTramite($params);
         return response()->json($tipoTramiteOTramite, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  Request  $request
+     * @param  string  $nombre
+     * @return \Illuminate\Http\Response
+     */
+    public function getPorNombre(Request $request, $nombre) {
+        $tipoTramite = TipoTramite::where('nombre', $nombre)->first();
+        return response()->json($tipoTramite, 200);
     }
 
 }
