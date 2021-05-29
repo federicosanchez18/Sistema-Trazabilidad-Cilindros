@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from "react";
 import FormularioBase from "views/establecimientos/formularioBase.js";
 import resolucion19896 from "assets/files/RESOLUCION_198_96.pdf";
+import useReglamentaciones from "assets/mocks/reglamentaciones.js";
+import TipoTramiteService from "../../services/TipoTramiteService";
 
 function FormularioComercializador(props) {
-    // Debería de obtenerse toda la info desde el backend
-    const [titulo] = useState("Establecimiento Comercializador")
-    const [reglamentaciones, setReglamentaciones] = useState([
-        {
-            "nombre": "Resolución 198/96",
-            "archivo": resolucion19896,
-        },
-        {
-            "nombre": "Resolución 738/07",
-            "archivo": "https://normas.gba.gob.ar/documentos/VJJ4kmcJ.html",
-        }
-    ])
-    const [pdfs, setPdfs] = useState([
-
-    ])
+    const [titulo] = useState("Comercializador")
+    const [reglamentaciones] = useReglamentaciones()
+    const [esTipoTramite, setEsTipoTramite] = useState(false)
+    const [tramite, setTramite] = useState(null)
 
     useEffect(() => {
-        // Acá se debería pegarle al backend para setear los valores que actualmente están mockeados
+        TipoTramiteService.getPorEstablecimiento('comercializador', 33926)
+            .then((response) => {
+                var data = response.data.data 
+                console.log("DATAAAA: ", data)
+                setEsTipoTramite(!data.tipo_tramite_id)
+                setTramite(data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }, [])
 
     return (
         <>
-            <FormularioBase titulo={titulo} reglamentaciones={reglamentaciones} archivos={pdfs}/>
+        {tramite &&
+            <FormularioBase titulo={titulo} tramite={tramite} establecimiento={33926} esTipoTramite={esTipoTramite} reglamentaciones={reglamentaciones}/>
+        }
         </>
     );
 }
