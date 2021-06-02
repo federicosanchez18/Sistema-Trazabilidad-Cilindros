@@ -23,6 +23,11 @@ import AdminLayout from "layouts/Admin/Admin.js";
 import RTLLayout from "layouts/RTL/RTL.js";
 import ListadoCilindros from "views/cilindros/listado.js";
 import FormularioFabricante from "views/establecimientos/formularioFabricante.js";
+import FormularioComercializador from "views/establecimientos/formularioComercializador.js";
+import FormularioImportador from "views/establecimientos/formularioImportador.js";
+import FormularioProductorLlenador from "views/establecimientos/formularioProductorLlenador.js";
+import FormularioTrasvasador from "views/establecimientos/formularioTrasvasador.js";
+import FormularioAdecuador from "views/establecimientos/formularioAdecuador.js";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
@@ -41,6 +46,11 @@ ReactDOM.render(
           <Route path="/rtl" render={(props) => <RTLLayout {...props} />} />
           <Route path="/cilindros" render={(props) => <ListadoCilindros {...props} />} />
           <Route path="/establecimiento/formulario-fabricante" render={(props) => <FormularioFabricante {...props} />} />
+          <Route path="/establecimiento/formulario-comercializador" render={(props) => <FormularioComercializador {...props} />} />
+          <Route path="/establecimiento/formulario-importador" render={(props) => <FormularioImportador {...props} />} />
+          <Route path="/establecimiento/formulario-productor-llenador" render={(props) => <FormularioProductorLlenador {...props} />} />
+          <Route path="/establecimiento/formulario-trasvasador" render={(props) => <FormularioTrasvasador {...props} />} />
+          <Route path="/establecimiento/formulario-adecuador" render={(props) => <FormularioAdecuador {...props} />} />
           <Redirect from="/" to="/admin/dashboard" />
         </Switch>
       </BrowserRouter>

@@ -23,7 +23,7 @@ function FormularioFabricante(props) {
       "autorizado": true
     },
     {
-      "nombre": "Documentación de Procedimiento",
+      "nombre": "Documentación de Procedimiento de Producción",
       "archivo": "",
       "validado": false,
       "autorizado": false
@@ -36,6 +36,36 @@ function FormularioFabricante(props) {
     },
     {
       "nombre": "Diagrama de Flujo y Memoria Técnica",
+      "archivo": "",
+      "validado": false,
+      "autorizado": false
+    },
+    {
+      "nombre": "Estatutos o Contrato Social",
+      "archivo": "",
+      "validado": false,
+      "autorizado": false
+    },
+    {
+      "nombre": "Libro de Actas foliado",
+      "archivo": "",
+      "validado": false,
+      "autorizado": false
+    },
+    {
+      "nombre": "Habilitación Municipal o certificación municipal",
+      "archivo": "",
+      "validado": false,
+      "autorizado": false
+    },
+    {
+      "nombre": "Contrato del Profesional o Técnico competente",
+      "archivo": "",
+      "validado": false,
+      "autorizado": false
+    },
+    {
+      "nombre": "Inscripción en el Registro de la Autoridad competente (SÓLO Para Gas Natural Comprimido)",
       "archivo": "",
       "validado": false,
       "autorizado": false

@@ -26,6 +26,25 @@ class Tramite extends Model {
 	    'finalizacion' => 'datetime:d-m-Y'
 	];
 
+    protected $with = ['documentos', 'tipoTramite'];
+
+    # Querys
+    # -----------------
+    public static function getTramite($establecimientoId, $tipoTramiteId) {
+        return self::buscarTramite($tipoTramiteId, $establecimientoId)
+                   ->first();
+    }  
+
+    public static function existeTramite($tipoTramiteId, $establecimientoId) {
+        return self::buscarTramite($tipoTramiteId, $establecimientoId)
+                   ->exists();   
+    }
+
+    private static function buscarTramite($tipoTramiteId, $establecimientoId) {
+        return self::where('establecimiento_id', $establecimientoId)
+                   ->where('tipo_tramite_id', $tipoTramiteId); 
+    }
+ 
 	# Relationships
     # -----------------
 	/**
@@ -33,6 +52,10 @@ class Tramite extends Model {
      */
     public function documentos() {
         return $this->hasMany(Documento::class);
+    }
+
+    public function tipoTramite() {
+        return $this->belongsTo(TipoTramite::class);
     }
 
 }
