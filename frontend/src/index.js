@@ -22,7 +22,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import AdminLayout from "layouts/Admin/Admin.js";
 import RTLLayout from "layouts/RTL/RTL.js";
 import ListadoCilindros from "views/cilindros/listado.js";
-import CylindersList from "views/cylinders/list.js";
 import FormularioFabricante from "views/establecimientos/formularioFabricante.js";
 
 import "assets/scss/black-dashboard-react.scss";
