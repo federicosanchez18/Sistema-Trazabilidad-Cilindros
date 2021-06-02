@@ -22,6 +22,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import AdminLayout from "layouts/Admin/Admin.js";
 import RTLLayout from "layouts/RTL/RTL.js";
 import ListadoCilindros from "views/cilindros/listado.js";
+import ListadoTramites from "views/tramites/listadoTramites.js";
 import FormularioFabricante from "views/establecimientos/formularioFabricante.js";
 import FormularioComercializador from "views/establecimientos/formularioComercializador.js";
 import FormularioImportador from "views/establecimientos/formularioImportador.js";
@@ -51,6 +52,7 @@ ReactDOM.render(
           <Route path="/establecimiento/formulario-productor-llenador" render={(props) => <FormularioProductorLlenador {...props} />} />
           <Route path="/establecimiento/formulario-trasvasador" render={(props) => <FormularioTrasvasador {...props} />} />
           <Route path="/establecimiento/formulario-adecuador" render={(props) => <FormularioAdecuador {...props} />} />
+          <Route path="/tramites" render= {(props) => <ListadoTramites {...props}/>} />
           <Redirect from="/" to="/admin/dashboard" />
         </Switch>
       </BrowserRouter>

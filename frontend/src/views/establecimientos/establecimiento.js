@@ -18,7 +18,7 @@ function Establecimiento(props) {
         console.log(error)
       })
   }, [])
-
+ 
   return (
     <>
       <Card className="card-user">
