@@ -29,7 +29,7 @@ function Establecimiento(props) {
               alt="..."
               src={require("assets/img/opds.png").default}
             />
-            <h5 className="title" style="" >Establecimiento</h5>
+            <h5 className="title">Establecimiento</h5>
           </div>
           <p className="description">Razon Social: {establecimiento.razon_social}</p>
           <p className="description">Cuit: {establecimiento.cuit}</p>
