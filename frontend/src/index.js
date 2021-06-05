@@ -53,6 +53,7 @@ ReactDOM.render(
           <Route path="/establecimiento/formulario-trasvasador" render={(props) => <FormularioTrasvasador {...props} />} />
           <Route path="/establecimiento/formulario-adecuador" render={(props) => <FormularioAdecuador {...props} />} />
           <Route path="/tramites" render= {(props) => <ListadoTramites {...props}/>} />
+          {/*<Route path="/tramitesbase" render= {(props) => <ListadoBase {...props}/>} />*/}
           <Redirect from="/" to="/admin/dashboard" />
         </Switch>
       </BrowserRouter>
