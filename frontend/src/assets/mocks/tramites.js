@@ -5,21 +5,13 @@ const ESTABLECIMIENTOS = ['Llenador', 'Trasvasador', 'Proveedor', 'Fabricante', 
 const TIPOTRAMITE = ['Llenador', 'Trasvasador', 'Proveedor', 'Fabricante', 'Adecuador', 'Comercializador']
 const ESTADOTRAMITES = ['Aceptado','Pendiente','Finalizado']
 const FECHACREACION = '20200101'
-/*
-  <th>Id de Establecimiento</th>
-                  <th>Establecimiento </th>
-                  <th>Tipo de Tramite</th>  
-                  <th>Estado de tramite</th>
-                  <th>Fecha de creacion</th>
-                  
-                </tr>
-*/
+
 const useTramites = () => {
 	const [constantes] = useState({
 		idEstablecimiento: NUMEROS,
 		establecimiento: ESTABLECIMIENTOS,
 		tipoTramite: TIPOTRAMITE,
-		estadoTramite :ESTADOTRAMITES,
+		estadoTramite : ESTADOTRAMITES,
 		fechaCreacion : FECHACREACION,
 		total : 20
 	})
