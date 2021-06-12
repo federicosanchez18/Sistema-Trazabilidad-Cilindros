@@ -23,6 +23,7 @@ import AdminLayout from "layouts/Admin/Admin.js";
 import RTLLayout from "layouts/RTL/RTL.js";
 import ListadoCilindros from "views/cilindros/listado.js";
 import ListadoTramites from "views/tramites/listadoTramites.js";
+import ListadoTramitesEstablecimiento from "views/tramites/listadoTramiteEstablecimiento.js"
 import FormularioFabricante from "views/establecimientos/formularioFabricante.js";
 import FormularioComercializador from "views/establecimientos/formularioComercializador.js";
 import FormularioImportador from "views/establecimientos/formularioImportador.js";
@@ -54,6 +55,7 @@ ReactDOM.render(
           <Route path="/establecimiento/formulario-adecuador" render={(props) => <FormularioAdecuador {...props} />} />
           <Route path="/tramites" render= {(props) => <ListadoTramites {...props}/>} />
           {/*<Route path="/tramitesbase" render= {(props) => <ListadoBase {...props}/>} />*/}
+          <Route path="/tramistes-establecimiento" render= {(props) => <ListadoTramitesEstablecimiento {...props}/>} />
           <Redirect from="/" to="/admin/dashboard" />
         </Switch>
       </BrowserRouter>

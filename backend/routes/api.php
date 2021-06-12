@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TramiteController;
+use App\Models\Tramite
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,9 @@ Route::middleware('api')->group(function() {
 	Route::get('tipo-tramites/con-establecimiento', 'App\Http\Controllers\TipoTramiteController@show');
 	Route::get('tipo-tramites/{nombre}', 'App\Http\Controllers\TipoTramiteController@getPorNombre');
 	Route::get('tipo-tramites', 'App\Http\Controllers\TipoTramiteController@index');
+	Route::get('tramite-by-establecimiento/{establecimientoId}', function($establecimientoId) {
+		$tramites = Tramite::where('establecimiento_id', $establecimientoId)->get();
+		return response()->json($tramites);
+	});
 });
 //});

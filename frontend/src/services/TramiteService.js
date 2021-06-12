@@ -24,11 +24,16 @@ const subidaArchivo = data => {
   return http.post("/tramites/subida-archivo", data);
 };
 
+const tramitesDelEstablecimiento = establecimiento_id => {
+  return http.get(`tramite-by-establecimiento/${establecimiento_id}`)
+}
+
 export default {
   getAll,
   get,
   create,
   update,
   remove,
-  subidaArchivo
+  subidaArchivo,
+  tramitesDelEstablecimiento
 };

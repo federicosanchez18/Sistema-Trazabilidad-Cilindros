@@ -11,7 +11,11 @@ import {
 import useTramites from "assets/mocks/tramites.js";
 
 function ListadoBase(props) { 
+  const {titulo,subtitulo,establecimiento} = props 
   const [tramites] = useTramites();
+  const  labels = useState(['CUIT','ESTABLECIMIENTO','TIPO TRAMITE','ESTADO DEL TRAMITE','FECHA DE CREACIÒN'])
+  const title = titulo
+  const subtitle = subtitulo       
 
   return (
     <>
@@ -20,18 +24,15 @@ function ListadoBase(props) {
         <Col md="12">
           <Card>
             <CardHeader>
-              <CardTitle tag="h4">Listado de Tramites</CardTitle>
-              <p className="category">Algunos datos de los tramites</p>
+              <CardTitle tag="h4">{title} </CardTitle>
+              <p className="category">{subtitle}</p>
             </CardHeader>
             <CardBody>
               <Table className="tablesorter" responsive>
                 <thead className="text-primary">
                   <tr>
-                    <th>Id de Establecimiento</th>
-                    <th>Establecimiento</th>
-                    <th>Tipo de Tramite</th>  
-                    <th>Estado del tramite</th>
-                    <th>Fecha de creación</th>
+                      {labels[0].map((label,i) => { 
+                      return <th > {label} </th> })}
                   </tr>
                 </thead>
                 <tbody>
@@ -56,3 +57,4 @@ function ListadoBase(props) {
 }
 
 export default ListadoBase;
+
